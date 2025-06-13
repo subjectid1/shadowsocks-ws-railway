@@ -1,10 +1,11 @@
-FROM alpine:latest
+FROM debian:bullseye-slim
 
-RUN apk add --no-cache shadowsocks-libev v2ray-plugin
-
-ENV SS_SERVER_ADDR=0.0.0.0     SS_SERVER_PORT=PORT     SS_PASSWORD=superSecret123     SS_METHOD=aes-256-gcm     SS_PLUGIN=v2ray-plugin     SS_PLUGIN_OPTS="server;mode=websocket"
+RUN apt update && \
+    apt install -y shadowsocks-libev v2ray-plugin && \
+    apt clean
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT ["/entrypoint.sh"]
+
