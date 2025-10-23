@@ -10,7 +10,8 @@ RUN apt update && \
     apt clean
 
 COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
 USER root
+RUN chmod 777 /entrypoint.sh
+
 ENTRYPOINT ["/entrypoint.sh"]
 
