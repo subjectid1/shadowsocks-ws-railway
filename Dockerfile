@@ -13,5 +13,4 @@ COPY entrypoint.sh /entrypoint.sh
 USER root
 RUN chmod 777 /entrypoint.sh
 
-ENTRYPOINT ["/entrypoint.sh"]
-
+ENTRYPOINT ["/ss-server"]
