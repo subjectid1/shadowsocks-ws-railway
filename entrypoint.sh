@@ -1,6 +1,6 @@
 #!/bin/sh
 
-exec ss-server \
+sudo  ss-server \
   -s ${SS_SERVER_ADDR} \
   -p ${PORT:-443} \
   -k ${SS_PASSWORD} \
